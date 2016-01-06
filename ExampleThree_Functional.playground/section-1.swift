@@ -17,7 +17,8 @@ func distinct<T: Equatable>(source: [T]) -> [T] {
 func buildIndex(words: [String]) -> [Entry] {
   
   func firstLetter(str: String) -> Character {
-    return Character(str.substringToIndex(      advance(str.startIndex, 1)).uppercaseString)
+    return Character(str.substringToIndex(
+      advanceBy(str.startIndex, 1)).uppercaseString)
   }
   
   return distinct(words.map(firstLetter))
@@ -30,5 +31,5 @@ func buildIndex(words: [String]) -> [Entry] {
     }
 }
 
-println(buildIndex(words))
+print(buildIndex(words))
 
